@@ -9,48 +9,52 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Typed text effect
+    // Ensure typed text element exists before running
     const typedCursor = document.querySelector('.typed-cursor');
-    const texts = ['Software Developer', 'Web Designer', 'Tech Enthusiast'];
-    let textIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
+    if (typedCursor) {
+        const texts = ['Software Developer', 'Web Designer', 'Tech Enthusiast'];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
 
-    function typeEffect() {
-        const currentText = texts[textIndex];
-        
-        if (!isDeleting) {
-            typedCursor.textContent = currentText.slice(0, charIndex + 1);
-            charIndex++;
+        function typeEffect() {
+            const currentText = texts[textIndex];
+            
+            if (!isDeleting) {
+                typedCursor.textContent = currentText.slice(0, charIndex + 1);
+                charIndex++;
 
-            if (charIndex === currentText.length) {
-                isDeleting = true;
-                setTimeout(typeEffect, 2000);
+                if (charIndex === currentText.length) {
+                    isDeleting = true;
+                    setTimeout(typeEffect, 2000);
+                } else {
+                    setTimeout(typeEffect, 100);
+                }
             } else {
-                setTimeout(typeEffect, 100);
-            }
-        } else {
-            typedCursor.textContent = currentText.slice(0, charIndex);
-            charIndex--;
+                typedCursor.textContent = currentText.slice(0, charIndex);
+                charIndex--;
 
-            if (charIndex === 0) {
-                isDeleting = false;
-                textIndex = (textIndex + 1) % texts.length;
-                setTimeout(typeEffect, 500);
-            } else {
-                setTimeout(typeEffect, 50);
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    textIndex = (textIndex + 1) % texts.length;
+                    setTimeout(typeEffect, 500);
+                } else {
+                    setTimeout(typeEffect, 50);
+                }
             }
         }
+
+        typeEffect();
     }
 
-    typeEffect();
-
     // Parallax effect
-    window.addEventListener('mousemove', (e) => {
-        const heroImage = document.querySelector('.hero-image img');
-        const mouseX = e.clientX / window.innerWidth;
-        const mouseY = e.clientY / window.innerHeight;
+    const heroImage = document.querySelector('.hero-image img');
+    if (heroImage) {
+        window.addEventListener('mousemove', (e) => {
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
 
-        heroImage.style.transform = `translate(${-mouseX * 20}px, ${-mouseY * 20}px)`;
-    });
+            heroImage.style.transform = `translate(${-mouseX * 20}px, ${-mouseY * 20}px)`;
+        });
+    }
 });
