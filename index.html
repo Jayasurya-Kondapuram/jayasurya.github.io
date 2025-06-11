@@ -208,15 +208,25 @@
                 <a href="#contact" class="nav-link font-medium">Contact</a>
             </div>
             
-            <div class="flex items-center space-x-4">
-                <div class="theme-switch" id="theme-switch"></div>
-                <button class="md:hidden" id="menu-toggle">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
+            <div class="relative">
+                <div class="flex items-center space-x-4">
+                    <div class="theme-switch" id="theme-switch"></div>
+                    <button class="md:hidden" id="menu-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            
+                <!-- Resume Button (Styled like 'View Projects') -->
+                <a href="My Resume.pdf" target="_blank"
+                   class="absolute right-0 mt-7 px-8 py-3 rounded-full border-2 border-indigo-500 font-medium hover:bg-indigo-500 hover:text-white transition-all z-50  whitespace-nowrap text-center">
+                   View Resume
+                </a>
             </div>
-        </div>
+            
+            
+            
         
         <!-- Mobile menu -->
         <div class="md:hidden hidden transition-all duration-300 ease-in-out" id="mobile-menu">
@@ -231,6 +241,8 @@
     </nav>
 
     <!-- Hero Section -->
+
+    
     <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
         <div class="container mx-auto px-4 py-16 flex flex-col md:flex-row items-center">
             <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
@@ -244,6 +256,8 @@
                 <p class="text-lg mb-8 max-w-lg mx-auto md:mx-0">
                     I create beautiful, functional, and responsive web experiences with a focus on user experience and modern design.
                 </p>
+
+                
                 <div class="flex flex-wrap gap-4 justify-center md:justify-start">
                     <a href="#contact" class="px-8 py-3 rounded-full gradient-bg text-white font-medium hover:opacity-90 transition-all">
                         Get in Touch
